@@ -34,7 +34,7 @@ const portfolioItems = [
     label: "Brand Reel",
     meta: "CINEMATIC / 2026",
     categories: ["reels", "brand-reels", "social-media"],
-    source: "/reels/edit_final.mp4",
+    source: "https://res.cloudinary.com/w7c3yurt/video/upload/reels/edit_final.mp4",
     number: "01",
   },
   {
@@ -44,7 +44,7 @@ const portfolioItems = [
     label: "Social Content",
     meta: "SOCIAL MEDIA / 2026",
     categories: ["reels", "social-media"],
-    source: "/reels/IMG_0611.MP4",
+    source: "https://res.cloudinary.com/w7c3yurt/video/upload/reels/IMG_0611.MP4",
     number: "02",
   },
   {
@@ -54,7 +54,7 @@ const portfolioItems = [
     label: "Brand Reel",
     meta: "BRAND CONTENT / 2026",
     categories: ["reels", "brand-reels"],
-    source: "/reels/IMG_0656.MP4",
+    source: "https://res.cloudinary.com/w7c3yurt/video/upload/reels/IMG_0656.MP4",
     number: "03",
   },
   {
@@ -64,7 +64,7 @@ const portfolioItems = [
     label: "Creative Reel",
     meta: "BRAND CONTENT / 2026",
     categories: ["reels", "brand-reels", "social-media"],
-    source: "/reels/IMG_0846.MP4",
+    source: "https://res.cloudinary.com/w7c3yurt/video/upload/reels/IMG_0846.MP4",
     number: "04",
   },
   {
@@ -74,7 +74,7 @@ const portfolioItems = [
     label: "Brand Reel",
     meta: "BRAND CONTENT / 2026",
     categories: ["reels", "brand-reels"],
-    source: "/reels/IMG_0938.MP4",
+    source: "https://res.cloudinary.com/w7c3yurt/video/upload/reels/IMG_0938.MP4",
     number: "05",
   },
   {
@@ -84,7 +84,7 @@ const portfolioItems = [
     label: "Social Content",
     meta: "SOCIAL MEDIA / 2026",
     categories: ["reels", "social-media"],
-    source: "/reels/IMG_0971.MP4",
+    source: "https://res.cloudinary.com/w7c3yurt/video/upload/reels/IMG_0971.MP4",
     number: "06",
   },
   {
@@ -94,7 +94,7 @@ const portfolioItems = [
     label: "Brand Reel",
     meta: "BRAND CONTENT / 2026",
     categories: ["reels", "brand-reels", "social-media"],
-    source: "/reels/New Project 17 [45129C5].mp4",
+    source: "https://res.cloudinary.com/w7c3yurt/video/upload/reels/New_Project_17_45129C5.mp4",
     number: "07",
   },
   {
@@ -104,7 +104,7 @@ const portfolioItems = [
     label: "YMM Campaign",
     meta: "AGENCY PROMO / 2026",
     categories: ["reels", "brand-reels", "social-media"],
-    source: "/reels/youngmedia edit.mp4",
+    source: "https://res.cloudinary.com/w7c3yurt/video/upload/reels/youngmedia_edit.mp4",
     number: "08",
   },
   {
@@ -114,7 +114,7 @@ const portfolioItems = [
     label: "Brand Reel",
     meta: "CINEMATIC / 2026",
     categories: ["reels", "brand-reels", "social-media"],
-    source: "/reels/lv_0_20260821193956.mp4",
+    source: "https://res.cloudinary.com/w7c3yurt/video/upload/reels/lv_0_20260821193956.mp4",
     number: "09",
   },
 ];
