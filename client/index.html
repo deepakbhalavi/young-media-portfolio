@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description"
+    content="Young Media Marketing — cinematic reels, creative campaigns and digital branding." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="image/png" href="/ymm-logo.png" />
+  <link rel="stylesheet" href="/src/style.css" />
+  <title>Young Media Marketing — Creative Portfolio</title>
+</head>
+
+<body>
+  <!-- Full-site background video -->
+  <div class="site-bg-video" aria-hidden="true">
+    <video autoplay muted loop playsinline preload="auto" src="/bg-video.mp4"></video>
+  </div>
+  <div class="site-grain" aria-hidden="true"></div>
+  <header class="site-header" id="top">
+    <a class="header-brand" href="#home" aria-label="Young Media Marketing home">
+      <img class="header-mark" src="/ymm-logo.png" alt="YMM Logo" />
+      <span>YOUNG MEDIA<br />MARKETING</span>
+    </a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#work">WORK</a>
+      <a href="#reels">REELS</a>
+      <a href="#about">ABOUT</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">
+      <span class="menu-toggle-label">MENU</span><span class="menu-toggle-icon" aria-hidden="true"></span>
+    </button>
+  </header>
+
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" aria-hidden="true">
+    <a href="#work">WORK <span>01</span></a>
+    <a href="#reels">REELS <span>02</span></a>
+    <a href="#about">ABOUT <span>03</span></a>
+    <a href="#contact">CONTACT <span>04</span></a>
+  </nav>
+
+  <main>
+    <section class="hero" id="home" aria-labelledby="hero-heading">
+      <div class="hero-visual" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> YMM / CREATIVE CONTENT STUDIO</p>
+        <img class="hero-logo" src="/ymm-logo.png" alt="Young Media Marketing" />
+        <h1 id="hero-heading">CREATIVE CONTENT.<br /><em>POWERFUL</em> BRANDS.</h1>
+        <a class="button button-white" href="#work">EXPLORE OUR WORK <span aria-hidden="true">↘</span></a>
+      </div>
+      <div class="hero-edge-note">BASED ON IDEAS / BUILT FOR ATTENTION</div>
+      <a class="scroll-cue" href="#work" aria-label="Scroll to our work">SCROLL <span aria-hidden="true">↓</span></a>
+    </section>
+
+    <section class="section work-section" id="work" aria-labelledby="work-heading">
+      <div class="section-heading stagger-reveal">
+        <div>
+          <p class="eyebrow"><span></span> SELECTED WORK / 2026</p>
+          <h2 id="work-heading">THE<br /><em>WORK</em> CUT.</h2>
+        </div>
+        <p class="section-lede">A selection of work made to stop the scroll, sharpen a brand and make the next move feel
+          obvious.</p>
+      </div>
+      <div class="work-index-line" aria-label="Young Media Marketing edit index">
+        <img src="/ymm-logo.png" alt="" />
+        <span>YMM / RIBBON INDEX</span><i></i><span>11 REELS / 2026</span><i></i><span>ROLL 01</span>
+      </div>
+      <div class="filter-row" role="tablist" aria-label="Filter portfolio work">
+        <button class="filter-button is-active" type="button" data-filter="all" role="tab" aria-selected="true">ALL
+          <span></span></button>
+        <button class="filter-button" type="button" data-filter="reels" role="tab" aria-selected="false">REELS
+          <span></span></button>
+        <button class="filter-button" type="button" data-filter="brand-reels" role="tab" aria-selected="false">BRAND
+          REELS <span></span></button>
+        <button class="filter-button" type="button" data-filter="posters" role="tab" aria-selected="false">POSTERS
+          <span></span></button>
+        <button class="filter-button" type="button" data-filter="social-media" role="tab" aria-selected="false">SOCIAL
+          MEDIA <span></span></button>
+      </div>
+      <div class="portfolio-grid" id="portfolio-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="section reels-section" id="reels" aria-labelledby="reels-heading">
+      <div class="reels-heading-row stagger-reveal">
+        <p class="eyebrow"><span></span> 04 / SCREENING ROOM</p>
+        <h2 id="reels-heading">REELS<br /><em>IN MOTION.</em></h2>
+        <p>Press play. Let the cut do the talking.</p>
+      </div>
+      <div class="reels-list" id="reels-list"></div>
+    </section>
+
+    <section class="section creatives-section" id="creatives" aria-labelledby="creatives-heading">
+      <div class="section-heading stagger-reveal">
+        <div>
+          <p class="eyebrow"><span></span> KEY ART / SELECT FRAMES</p>
+          <h2 id="creatives-heading">POSTERS &<br /><em>CREATIVES.</em></h2>
+        </div>
+        <p class="section-lede">The still image carries the same job: create a reason to pause.</p>
+      </div>
+      <div class="creative-masonry" id="creative-masonry" aria-live="polite"></div>
+    </section>
+
+    <section class="clients-section" id="clients" aria-labelledby="clients-heading">
+      <div class="client-heading-wrap">
+        <div class="paper-index"><img src="/ymm-logo.png" alt="" /> <span></span></div>
+        <p class="eyebrow"><span></span> CLIENT WORK </p>
+        <h2 id="clients-heading">BUILT FOR<br /><em>THEIR NEXT.</em></h2>
+      </div>
+      <div class="client-list" id="client-list"></div>
+    </section>
+
+    <section class="about-section" id="about" aria-labelledby="about-heading">
+      <div class="about-index">05 / ABOUT YMM</div>
+      <div class="about-copy stagger-reveal">
+        <h2 id="about-heading">WE CREATE.<br /><em>YOU GROW.</em></h2>
+        <p>Young Media Marketing creates reels, videos, posters, social media content and digital branding for modern
+          businesses.</p>
+      </div>
+      <div class="about-mark"><img src="/ymm-logo.png" alt="" /></div>
+    </section>
+
+    <section class="contact-section" id="contact" aria-labelledby="contact-heading">
+      <div class="contact-light" aria-hidden="true"></div>
+      <div class="contact-content stagger-reveal">
+        <p class="eyebrow"><span></span></p>
+        <h2 id="contact-heading">LET'S CREATE<br /><em>SOMETHING GREAT.</em></h2>
+        <p class="contact-note"></p>
+        <div class="contact-links" id="contact-links"></div>
+      </div>
+      <div class="contact-end-mark"><img src="/ymm-logo.png" alt="" /><span><br /></span></div>
+      <a class="contact-top" href="#top">BACK TO TOP <span aria-hidden="true">↑</span></a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="current-year"></span> YOUNG MEDIA MARKETING</span>
+    <span></span>
+  </footer>
+
+  <dialog class="media-dialog" id="media-dialog" aria-labelledby="media-dialog-title">
+    <button class="dialog-close" type="button" aria-label="Close media viewer">CLOSE <span aria-hidden="true">×</span></button>
+    <button class="dialog-prev" type="button" id="dialog-prev" aria-label="Previous item">&#8592;</button>
+    <button class="dialog-next" type="button" id="dialog-next" aria-label="Next item">&#8594;</button>
+    <div class="dialog-stage" id="dialog-stage"></div>
+    <div class="dialog-meta">
+      <p id="media-dialog-title"></p>
+      <span id="dialog-caption"></span>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="/src/script.js"></script>
+</body>
+
+</html>
