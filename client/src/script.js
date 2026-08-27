@@ -334,13 +334,20 @@ function mediaMarkup(item, className) {
 }
 
 function createWorkCard(item) {
+  const isVideo = item.type === "video";
   return `
     <article class="work-card" data-id="${escapeHtml(item.id)}" data-categories="${item.categories.join(" ")}" tabindex="0" role="button" aria-label="Open ${escapeHtml(item.title)}">
-      ${mediaMarkup(item, "work-media")}
-      <span class="work-number">${item.number}</span>
+      <div class="work-card-media">
+        ${mediaMarkup(item, "work-media")}
+        <span class="work-number">${item.number}</span>
+        ${isVideo ? `<span class="work-play" aria-hidden="true">▶</span>` : `<span class="work-play" aria-hidden="true">↗</span>`}
+      </div>
       <div class="work-caption">
-        <div><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.label)} / ${escapeHtml(item.meta)}</p></div>
-        <span class="play-cue" aria-hidden="true">${item.type === "video" ? "▶" : "↗"}</span>
+        <div class="work-caption-text">
+          <h3>${escapeHtml(item.title)}</h3>
+          <p>${escapeHtml(item.label)} · ${escapeHtml(item.meta)}</p>
+        </div>
+        <span class="work-caption-arrow" aria-hidden="true">↗</span>
       </div>
     </article>`;
 }
@@ -348,10 +355,17 @@ function createWorkCard(item) {
 function createReelCard(item) {
   return `
     <article class="reel-card" data-id="${escapeHtml(item.id)}" tabindex="0" role="button" aria-label="Play ${escapeHtml(item.title)}">
-      ${mediaMarkup(item, "reel-poster")}
-      <div class="work-caption">
-        <div><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.label)} / ${escapeHtml(item.meta)}</p></div>
-        <span class="play-cue" aria-hidden="true">▶</span>
+      <div class="reel-card-media">
+        ${mediaMarkup(item, "reel-poster")}
+        <span class="reel-number">${item.number}</span>
+        <span class="reel-play" aria-hidden="true">▶</span>
+      </div>
+      <div class="reel-caption">
+        <div class="work-caption-text">
+          <h3>${escapeHtml(item.title)}</h3>
+          <p>${escapeHtml(item.label)} · ${escapeHtml(item.meta)}</p>
+        </div>
+        <span class="reel-caption-arrow" aria-hidden="true">↗</span>
       </div>
     </article>`;
 }
