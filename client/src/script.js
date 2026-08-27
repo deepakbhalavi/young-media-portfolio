@@ -322,7 +322,10 @@ const dialogPrev = document.querySelector("#dialog-prev");
 const dialogNext = document.querySelector("#dialog-next");
 const toast = document.querySelector("#toast");
 
-const allMediaItems = () => portfolioItems.concat(creativeItems);
+// Page-aware media pool: on posters.html navigate posters; on index.html navigate videos only
+const isPostersPage = !!document.querySelector("#creative-masonry");
+const allMediaItems = () => isPostersPage ? creativeItems : portfolioItems.filter((i) => i.type === "video");
+
 let currentMediaIndex = -1;
 
 const escapeHtml = (value) => String(value).replace(/[&<>'"]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[char]));
@@ -371,20 +374,25 @@ function createReelCard(item) {
 }
 
 function renderPortfolio() {
-  portfolioGrid.innerHTML = portfolioItems.concat(creativeItems).map(createWorkCard).join("");
-  reelsList.innerHTML = portfolioItems.filter((item) => item.type === "video").map(createReelCard).join("");
-  if (!creativeItems.length) {
-    creativeMasonry.innerHTML = `<div class="empty-state">POSTERS & SOCIAL CREATIVES WILL APPEAR HERE.<br />ADD IMAGE ITEMS TO <strong>creativeItems</strong> IN script.js.</div>`;
-  } else {
-    creativeMasonry.innerHTML = creativeItems.map((item) => `
+  // On index.html: show only videos in the work grid (posters live on posters.html)
+  if (portfolioGrid) portfolioGrid.innerHTML = portfolioItems.filter((item) => item.type === "video").map(createWorkCard).join("");
+  if (reelsList) reelsList.innerHTML = portfolioItems.filter((item) => item.type === "video").map(createReelCard).join("");
+  // On posters.html: render the creative masonry grid
+  if (creativeMasonry) {
+    if (!creativeItems.length) {
+      creativeMasonry.innerHTML = `<div class="empty-state">POSTERS &amp; SOCIAL CREATIVES WILL APPEAR HERE.<br />ADD IMAGE ITEMS TO <strong>creativeItems</strong> IN script.js.</div>`;
+    } else {
+      creativeMasonry.innerHTML = creativeItems.map((item) => `
       <article class="creative-card" data-id="${escapeHtml(item.id)}" tabindex="0" role="button" aria-label="View ${escapeHtml(item.title)}">
         ${mediaMarkup(item, "creative-image")}
         <div class="creative-caption"><h3>${escapeHtml(item.title)}</h3><span>${escapeHtml(item.label)}</span></div>
       </article>`).join("");
+    }
   }
 }
 
 function renderClients() {
+  if (!clientList) return;
   clientList.innerHTML = clientItems.map((item, index) => `
     <article class="client-row">
       <span class="client-number">${String(index + 1).padStart(2, "0")}</span>
@@ -401,6 +409,7 @@ function showToast(message) {
 }
 
 function renderContactLinks() {
+  if (!contactLinksMount) return;
   contactLinksMount.innerHTML = contactLinks.map((item) => {
     if (!item.url) return `<button class="contact-link" type="button" data-missing-contact="${escapeHtml(item.label)}">${escapeHtml(item.label)} <span aria-hidden="true">↗</span></button>`;
     return `<a class="contact-link" href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">${escapeHtml(item.label)} <span aria-hidden="true">↗</span></a>`;
@@ -408,7 +417,7 @@ function renderContactLinks() {
 }
 
 function itemById(id) {
-  return portfolioItems.concat(creativeItems).find((item) => item.id === id);
+  return allMediaItems().find((item) => item.id === id);
 }
 
 function openMedia(item) {
@@ -515,18 +524,20 @@ function init() {
   renderPortfolio();
   renderClients();
   renderContactLinks();
-  attachMediaEvents(portfolioGrid);
-  attachMediaEvents(reelsList);
-  attachMediaEvents(creativeMasonry);
-  configureFilters();
+  if (portfolioGrid) attachMediaEvents(portfolioGrid);
+  if (reelsList) attachMediaEvents(reelsList);
+  if (creativeMasonry) attachMediaEvents(creativeMasonry);
+  if (document.querySelector(".filter-button")) configureFilters();
   configureMenu();
   configureReveal();
   configureHeader();
   document.querySelector("#current-year").textContent = new Date().getFullYear();
-  contactLinksMount.addEventListener("click", (event) => {
-    const button = event.target.closest("[data-missing-contact]");
-    if (button) showToast(`Add the ${button.dataset.missingContact} URL in script.js to activate this link.`);
-  });
+  if (contactLinksMount) {
+    contactLinksMount.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-missing-contact]");
+      if (button) showToast(`Add the ${button.dataset.missingContact} URL in script.js to activate this link.`);
+    });
+  }
   dialog.querySelector(".dialog-close").addEventListener("click", closeMedia);
   dialogPrev.addEventListener("click", () => navigateMedia(-1));
   dialogNext.addEventListener("click", () => navigateMedia(1));

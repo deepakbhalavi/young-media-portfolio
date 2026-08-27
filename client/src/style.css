@@ -111,7 +111,7 @@ em { color: var(--silver); font-style: italic; font-weight: 400; }
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 2px;
+  gap: 14px;
   padding-top: 48px;
   position: relative;
 }
@@ -202,12 +202,8 @@ em { color: var(--silver); font-style: italic; font-weight: 400; }
 }
 .work-card.is-hidden { display: none; }
 
-/* ── 3-column standard cards ── */
+/* ── 3-column standard cards — all equal ── */
 .work-card { grid-column: span 4; }
-
-/* ── 2 featured cards: first two items span 6 each (full-width pair) ── */
-.work-card:nth-child(1),
-.work-card:nth-child(2) { grid-column: span 6; }
 
 /* ── Media wrapper — image/video fills a fixed aspect box ── */
 .work-card-media {
@@ -217,11 +213,8 @@ em { color: var(--silver); font-style: italic; font-weight: 400; }
   background: #111;
   flex-shrink: 0;
 }
-/* Standard cards: 3:4 portrait-ish aspect */
-.work-card-media { aspect-ratio: 4/3; }
-/* Featured cards: wider cinematic aspect */
-.work-card:nth-child(1) .work-card-media,
-.work-card:nth-child(2) .work-card-media { aspect-ratio: 16/10; }
+/* All cards: compact 16/9 cinematic aspect */
+.work-card-media { aspect-ratio: 16/9; }
 
 .work-media, .reel-poster {
   position: absolute;
@@ -283,15 +276,7 @@ em { color: var(--silver); font-style: italic; font-weight: 400; }
   color: #000;
   transform: scale(1.12);
 }
-/* Featured card — slightly larger play icon */
-.work-card:nth-child(1) .work-play,
-.work-card:nth-child(2) .work-play {
-  width: 34px;
-  height: 34px;
-  font-size: 10px;
-  top: 14px;
-  right: 14px;
-}
+/* All cards same play icon size */
 
 /* Project number — top left of image */
 .work-number {
@@ -328,12 +313,7 @@ em { color: var(--silver); font-style: italic; font-weight: 400; }
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* Featured card titles — slightly larger */
-.work-card:nth-child(1) .work-caption h3,
-.work-card:nth-child(2) .work-caption h3 {
-  font-size: 14px;
-  letter-spacing: -0.03em;
-}
+/* All card titles uniform size */
 .work-caption p {
   margin: 0;
   color: rgba(255,255,255,0.32);
@@ -372,13 +352,12 @@ em { color: var(--silver); font-style: italic; font-weight: 400; }
 .reels-list {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 2px;
+  gap: 20px;
   padding-top: 48px;
 }
-/* First reel: featured wide */
-.reel-card:nth-child(1) { grid-column: span 7; }
-/* Second reel: medium */
-.reel-card:nth-child(2) { grid-column: span 5; }
+/* First two reels: equal side-by-side */
+.reel-card:nth-child(1) { grid-column: span 6; }
+.reel-card:nth-child(2) { grid-column: span 6; }
 /* Remaining: 3-col */
 .reel-card:nth-child(n+3) { grid-column: span 4; }
 
@@ -404,8 +383,8 @@ em { color: var(--silver); font-style: italic; font-weight: 400; }
   flex-shrink: 0;
 }
 .reel-card:nth-child(1) .reel-card-media,
-.reel-card:nth-child(2) .reel-card-media { aspect-ratio: 16/10; }
-.reel-card:nth-child(n+3) .reel-card-media { aspect-ratio: 4/3; }
+.reel-card:nth-child(2) .reel-card-media { aspect-ratio: 16/9; }
+.reel-card:nth-child(n+3) .reel-card-media { aspect-ratio: 16/9; }
 
 .reel-poster {
   position: absolute;
@@ -611,14 +590,14 @@ em { color: var(--silver); font-style: italic; font-weight: 400; }
   .filter-row { gap: 12px 20px; }
   .work-index-line { flex-wrap: wrap; gap: 8px; }
   .work-index-line i { width: 14px; }
-  .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 2px; }
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .work-card { grid-column: span 1 !important; }
-  .work-card .work-card-media { aspect-ratio: 4/3 !important; }
+  .work-card .work-card-media { aspect-ratio: 16/9 !important; }
   .reels-heading-row { display: block; padding-bottom: 32px; }
   .reels-heading-row > p:last-child { margin-top: 30px; }
-  .reels-list { grid-template-columns: 1fr 1fr; gap: 2px; }
+  .reels-list { grid-template-columns: 1fr 1fr; gap: 10px; }
   .reel-card { grid-column: span 1 !important; }
-  .reel-card .reel-card-media { aspect-ratio: 4/3 !important; }
+  .reel-card .reel-card-media { aspect-ratio: 16/9 !important; }
   .work-corner { display: none; }
   .work-scroll-indicator { display: none; }
   .clients-section { display: block; padding: 100px 20px; }

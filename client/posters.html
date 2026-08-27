@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description"
+    content="Young Media Marketing — Posters, key art and creative stills." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="image/png" href="/ymm-logo.png" />
+  <link rel="stylesheet" href="/src/style.css" />
+  <title>Posters &amp; Creatives — Young Media Marketing</title>
+</head>
+
+<body>
+  <!-- Full-site background video -->
+  <div class="site-bg-video" aria-hidden="true">
+    <video autoplay muted loop playsinline preload="auto" src="https://res.cloudinary.com/w7c3yurt/video/upload/bg-video.mp4"></video>
+  </div>
+  <div class="site-grain" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <a class="header-brand" href="/index.html" aria-label="Young Media Marketing home">
+      <img class="header-mark" src="/ymm-logo.png" alt="YMM Logo" />
+      <span>YOUNG MEDIA<br />MARKETING</span>
+    </a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="/index.html#work">WORK</a>
+      <a href="/index.html#reels">REELS</a>
+      <a href="/posters.html" aria-current="page">POSTERS</a>
+      <a href="/index.html#about">ABOUT</a>
+      <a href="/index.html#contact">CONTACT</a>
+    </nav>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">
+      <span class="menu-toggle-label">MENU</span><span class="menu-toggle-icon" aria-hidden="true"></span>
+    </button>
+  </header>
+
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" aria-hidden="true">
+    <a href="/index.html#work">WORK <span>01</span></a>
+    <a href="/index.html#reels">REELS <span>02</span></a>
+    <a href="/posters.html">POSTERS <span>03</span></a>
+    <a href="/index.html#about">ABOUT <span>04</span></a>
+    <a href="/index.html#contact">CONTACT <span>05</span></a>
+  </nav>
+
+  <main>
+    <section class="section creatives-section" id="creatives" aria-labelledby="creatives-heading"
+      style="padding-top: clamp(140px, 16vw, 220px);">
+      <div class="section-heading stagger-reveal">
+        <div>
+          <p class="eyebrow"><span></span> KEY ART / SELECT FRAMES</p>
+          <h2 id="creatives-heading">POSTERS &<br /><em>CREATIVES.</em></h2>
+        </div>
+        <p class="section-lede">The still image carries the same job: create a reason to pause.</p>
+      </div>
+      <div class="creative-masonry" id="creative-masonry" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="current-year"></span> YOUNG MEDIA MARKETING</span>
+    <span></span>
+  </footer>
+
+  <dialog class="media-dialog" id="media-dialog" aria-labelledby="media-dialog-title">
+    <button class="dialog-close" type="button" aria-label="Close media viewer">CLOSE <span aria-hidden="true">×</span></button>
+    <button class="dialog-prev" type="button" id="dialog-prev" aria-label="Previous item">&#8592;</button>
+    <button class="dialog-next" type="button" id="dialog-next" aria-label="Next item">&#8594;</button>
+    <div class="dialog-stage" id="dialog-stage"></div>
+    <div class="dialog-meta">
+      <p id="media-dialog-title"></p>
+      <span id="dialog-caption"></span>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="/src/script.js"></script>
+</body>
+
+</html>
