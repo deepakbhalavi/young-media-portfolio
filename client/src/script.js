@@ -129,6 +129,17 @@ const portfolioItems = [
     poster: cloudinaryThumb("https://res.cloudinary.com/w7c3yurt/video/upload/v1788335265/Finalll_Movie_Bangalore_Reel.mp4"),
     number: "11",
   },
+  {
+    id: "img-4914",
+    type: "video",
+    title: "Creative Cut — 4914",
+    label: "Brand Reel",
+    meta: "BRAND CONTENT / 2026",
+    categories: ["reels", "brand-reels", "social-media"],
+    source: "https://res.cloudinary.com/w7c3yurt/video/upload/v1788335782/Img_4914.mp4",
+    poster: cloudinaryThumb("https://res.cloudinary.com/w7c3yurt/video/upload/v1788335782/Img_4914.mp4"),
+    number: "12",
+  },
 ];
 
 /* Posters & creatives — your real images from D:\post */
