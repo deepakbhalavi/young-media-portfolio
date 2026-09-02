@@ -118,6 +118,17 @@ const portfolioItems = [
     poster: cloudinaryThumb("https://res.cloudinary.com/w7c3yurt/video/upload/v1788334782/The_Nath_Des.Co_Reel_003_Final_15_Aug_X1.mp4"),
     number: "10",
   },
+  {
+    id: "bangalore-reel-final",
+    type: "video",
+    title: "Bangalore Reel — Final",
+    label: "City Reel",
+    meta: "CINEMATIC / 2026",
+    categories: ["reels", "brand-reels", "social-media"],
+    source: "https://res.cloudinary.com/w7c3yurt/video/upload/v1788335265/Finalll_Movie_Bangalore_Reel.mp4",
+    poster: cloudinaryThumb("https://res.cloudinary.com/w7c3yurt/video/upload/v1788335265/Finalll_Movie_Bangalore_Reel.mp4"),
+    number: "11",
+  },
 ];
 
 /* Posters & creatives — your real images from D:\post */
