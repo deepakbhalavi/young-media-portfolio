@@ -107,6 +107,17 @@ const portfolioItems = [
     poster: cloudinaryThumb("https://res.cloudinary.com/w7c3yurt/video/upload/lv_0_20260821193956.mp4"),
     number: "09",
   },
+  {
+    id: "nath-desico-reel-003",
+    type: "video",
+    title: "The Nath Des.Co — Reel 003",
+    label: "Brand Reel",
+    meta: "BRAND CONTENT / 2026",
+    categories: ["reels", "brand-reels", "social-media"],
+    source: "https://res.cloudinary.com/w7c3yurt/video/upload/v1788334782/The_Nath_Des.Co_Reel_003_Final_15_Aug_X1.mp4",
+    poster: cloudinaryThumb("https://res.cloudinary.com/w7c3yurt/video/upload/v1788334782/The_Nath_Des.Co_Reel_003_Final_15_Aug_X1.mp4"),
+    number: "10",
+  },
 ];
 
 /* Posters & creatives — your real images from D:\post */
