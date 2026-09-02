@@ -216,7 +216,8 @@ em { color: var(--silver); font-style: italic; font-weight: 400; }
 /* All cards: compact 16/9 cinematic aspect */
 .work-card-media { aspect-ratio: 16/9; }
 
-.work-media, .reel-poster {
+.work-media, .reel-poster,
+.work-media-cover, .reel-poster-cover {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -228,8 +229,19 @@ em { color: var(--silver); font-style: italic; font-weight: 400; }
   transition: transform 700ms var(--ease-out), filter 500ms var(--ease-out);
   will-change: transform;
 }
+/* Cover img sits on top of video so it's always visible */
+.work-media-cover, .reel-poster-cover {
+  z-index: 1;
+}
+/* Hide the raw video element behind the cover img on cards (save bandwidth) */
+.work-card-media video.work-media,
+.reel-card-media video.reel-poster {
+  z-index: 0;
+}
 .work-card:hover .work-media,
+.work-card:hover .work-media-cover,
 .reel-card:hover .reel-poster,
+.reel-card:hover .reel-poster-cover,
 .creative-card:hover img {
   filter: grayscale(0.15) contrast(1.02) brightness(1);
   transform: scale(1.04);

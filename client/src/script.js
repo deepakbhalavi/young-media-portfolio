@@ -26,6 +26,17 @@ const ASSETS = {
   type: "image" opens a poster or creative in the fullscreen lightbox.
   categories must use: reels, brand-reels, posters, social-media.
 */
+// Helper: derive a Cloudinary JPEG thumbnail from a Cloudinary video URL.
+// Uses the "so_0" (start offset 0) transformation to grab the first frame.
+// Strips the original file extension (handles uppercase like .MP4) and appends .jpg.
+function cloudinaryThumb(videoUrl) {
+  // Remove the file extension from the public_id (case-insensitive) then add .jpg
+  const withoutExt = videoUrl.replace(/\.[^/.]+$/, "");
+  return withoutExt
+    .replace("/video/upload/", "/video/upload/so_0,q_auto,f_jpg/")
+    + ".jpg";
+}
+
 const portfolioItems = [
   {
     id: "edit-final",
@@ -35,6 +46,7 @@ const portfolioItems = [
     meta: "CINEMATIC / 2026",
     categories: ["reels", "brand-reels", "social-media"],
     source: "https://res.cloudinary.com/w7c3yurt/video/upload/edit_final.mp4",
+    poster: cloudinaryThumb("https://res.cloudinary.com/w7c3yurt/video/upload/edit_final.mp4"),
     number: "01",
   },
   {
@@ -45,38 +57,12 @@ const portfolioItems = [
     meta: "SOCIAL MEDIA / 2026",
     categories: ["reels", "social-media"],
     source: "https://res.cloudinary.com/w7c3yurt/video/upload/IMG_0611.MP4",
+    poster: cloudinaryThumb("https://res.cloudinary.com/w7c3yurt/video/upload/IMG_0611.MP4"),
     number: "02",
   },
-  {
-    id: "img-0656",
-    type: "video",
-    title: "Brand Moment — 0656",
-    label: "Brand Reel",
-    meta: "BRAND CONTENT / 2026",
-    categories: ["reels", "brand-reels"],
-    source: "https://res.cloudinary.com/w7c3yurt/video/upload/IMG_0656.MP4",
-    number: "03",
-  },
-  {
-    id: "img-0846",
-    type: "video",
-    title: "Creative Reel — 0846",
-    label: "Creative Reel",
-    meta: "BRAND CONTENT / 2026",
-    categories: ["reels", "brand-reels", "social-media"],
-    source: "https://res.cloudinary.com/w7c3yurt/video/upload/IMG_0846.MP4",
-    number: "04",
-  },
-  {
-    id: "img-0938",
-    type: "video",
-    title: "Brand Cut — 0938",
-    label: "Brand Reel",
-    meta: "BRAND CONTENT / 2026",
-    categories: ["reels", "brand-reels"],
-    source: "https://res.cloudinary.com/w7c3yurt/video/upload/IMG_0938.MP4",
-    number: "05",
-  },
+
+
+
   {
     id: "img-0971",
     type: "video",
@@ -85,6 +71,7 @@ const portfolioItems = [
     meta: "SOCIAL MEDIA / 2026",
     categories: ["reels", "social-media"],
     source: "https://res.cloudinary.com/w7c3yurt/video/upload/IMG_0971.MP4",
+    poster: cloudinaryThumb("https://res.cloudinary.com/w7c3yurt/video/upload/IMG_0971.MP4"),
     number: "06",
   },
   {
@@ -95,6 +82,7 @@ const portfolioItems = [
     meta: "BRAND CONTENT / 2026",
     categories: ["reels", "brand-reels", "social-media"],
     source: "https://res.cloudinary.com/w7c3yurt/video/upload/New_Project_17_45129C5.mp4",
+    poster: cloudinaryThumb("https://res.cloudinary.com/w7c3yurt/video/upload/New_Project_17_45129C5.mp4"),
     number: "07",
   },
   {
@@ -105,6 +93,7 @@ const portfolioItems = [
     meta: "AGENCY PROMO / 2026",
     categories: ["reels", "brand-reels", "social-media"],
     source: "https://res.cloudinary.com/w7c3yurt/video/upload/youngmedia_edit.mp4",
+    poster: cloudinaryThumb("https://res.cloudinary.com/w7c3yurt/video/upload/youngmedia_edit.mp4"),
     number: "08",
   },
   {
@@ -115,6 +104,7 @@ const portfolioItems = [
     meta: "CINEMATIC / 2026",
     categories: ["reels", "brand-reels", "social-media"],
     source: "https://res.cloudinary.com/w7c3yurt/video/upload/lv_0_20260821193956.mp4",
+    poster: cloudinaryThumb("https://res.cloudinary.com/w7c3yurt/video/upload/lv_0_20260821193956.mp4"),
     number: "09",
   },
 ];
@@ -331,9 +321,13 @@ let currentMediaIndex = -1;
 const escapeHtml = (value) => String(value).replace(/[&<>'"]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[char]));
 
 function mediaMarkup(item, className) {
-  const posterAttribute = item.poster ? ` poster="${escapeHtml(item.poster)}"` : "";
   if (item.type === "image") return `<img class="${className}" src="${escapeHtml(item.source)}" alt="${escapeHtml(item.title)}" loading="lazy" />`;
-  return `<video class="${className}" src="${escapeHtml(item.source)}"${posterAttribute} preload="metadata" muted playsinline aria-label="Preview of ${escapeHtml(item.title)}"></video>`;
+  // Render an explicit <img> cover so the thumbnail is always visible on all devices.
+  // Browsers can silently skip the video `poster` attribute on slow/mobile connections.
+  const coverImg = item.poster
+    ? `<img class="${className}-cover" src="${escapeHtml(item.poster)}" alt="${escapeHtml(item.title)} cover" loading="lazy" aria-hidden="true" />`
+    : "";
+  return `${coverImg}<video class="${className}" src="${escapeHtml(item.source)}" poster="${item.poster ? escapeHtml(item.poster) : ""}" preload="none" muted playsinline aria-label="Preview of ${escapeHtml(item.title)}"></video>`;
 }
 
 function createWorkCard(item) {
