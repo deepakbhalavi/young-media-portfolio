@@ -140,6 +140,28 @@ const portfolioItems = [
     poster: cloudinaryThumb("https://res.cloudinary.com/w7c3yurt/video/upload/v1788335782/Img_4914.mp4"),
     number: "12",
   },
+  {
+    id: "img-3844",
+    type: "video",
+    title: "Creative Cut — 3844",
+    label: "Campaign Video",
+    meta: "CAMPAIGN / 2026",
+    categories: ["reels", "brand-reels", "social-media"],
+    source: "https://res.cloudinary.com/w7c3yurt/video/upload/v1789714724/IMG_3844.mp4",
+    poster: cloudinaryThumb("https://res.cloudinary.com/w7c3yurt/video/upload/v1789714724/IMG_3844.mp4"),
+    number: "13",
+  },
+  {
+    id: "img-9094",
+    type: "video",
+    title: "Creative Cut — 9094",
+    label: "Campaign Video",
+    meta: "CAMPAIGN / 2026",
+    categories: ["reels", "brand-reels", "social-media"],
+    source: "https://res.cloudinary.com/w7c3yurt/video/upload/v1789716140/Img_9094.mp4",
+    poster: cloudinaryThumb("https://res.cloudinary.com/w7c3yurt/video/upload/v1789716140/Img_9094.mp4"),
+    number: "14",
+  },
 ];
 
 /* Posters & creatives — your real images from D:\post */
