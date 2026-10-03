@@ -173,6 +173,17 @@ const portfolioItems = [
     poster: cloudinaryThumb("https://res.cloudinary.com/w7c3yurt/video/upload/v1791019343/IMG_7987.mov"),
     number: "15",
   },
+  {
+    id: "skin-care-4",
+    type: "video",
+    title: "Skin Care — Edit 4",
+    label: "Brand Reel",
+    meta: "BRAND CONTENT / 2026",
+    categories: ["reels", "brand-reels", "social-media"],
+    source: "https://res.cloudinary.com/w7c3yurt/video/upload/v1791019811/Skin_Care_4.mp4",
+    poster: cloudinaryThumb("https://res.cloudinary.com/w7c3yurt/video/upload/v1791019811/Skin_Care_4.mp4"),
+    number: "16",
+  },
 ];
 
 /* Posters & creatives — your real images from D:\post */
