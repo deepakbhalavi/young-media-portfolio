@@ -162,6 +162,17 @@ const portfolioItems = [
     poster: cloudinaryThumb("https://res.cloudinary.com/w7c3yurt/video/upload/v1789716140/Img_9094.mp4"),
     number: "14",
   },
+  {
+    id: "img-7987",
+    type: "video",
+    title: "Creative Cut — 7987",
+    label: "Campaign Video",
+    meta: "CAMPAIGN / 2026",
+    categories: ["reels", "brand-reels", "social-media"],
+    source: "https://res.cloudinary.com/w7c3yurt/video/upload/v1791019343/IMG_7987.mov",
+    poster: cloudinaryThumb("https://res.cloudinary.com/w7c3yurt/video/upload/v1791019343/IMG_7987.mov"),
+    number: "15",
+  },
 ];
 
 /* Posters & creatives — your real images from D:\post */
