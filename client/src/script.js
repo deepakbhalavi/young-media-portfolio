@@ -184,10 +184,6 @@ const portfolioItems = [
     poster: cloudinaryThumb("https://res.cloudinary.com/w7c3yurt/video/upload/v1791019811/Skin_Care_4.mp4"),
     number: "16",
   },
-];
-
-/* Real Estate reels — local videos in client/public/reels/ */
-const realEstateItems = [
   {
     id: "real-estate-5626",
     type: "video",
@@ -197,7 +193,7 @@ const realEstateItems = [
     categories: ["reels", "real-estate"],
     source: "/reels/IMG_5626.MP4",
     poster: "",
-    number: "01",
+    number: "17",
   },
   {
     id: "real-estate-5624",
@@ -208,7 +204,7 @@ const realEstateItems = [
     categories: ["reels", "real-estate"],
     source: "/reels/IMG_5624.MP4",
     poster: "",
-    number: "02",
+    number: "18",
   },
 ];
 
@@ -403,7 +399,6 @@ const contactLinks = [
 ];
 
 const portfolioGrid = document.querySelector("#portfolio-grid");
-const realEstateGrid = document.querySelector("#real-estate-grid");
 const reelsList = document.querySelector("#reels-list");
 const creativeMasonry = document.querySelector("#creative-masonry");
 const clientList = document.querySelector("#client-list");
@@ -418,7 +413,7 @@ const toast = document.querySelector("#toast");
 
 // Page-aware media pool: on posters.html navigate posters; on index.html navigate videos only
 const isPostersPage = !!document.querySelector("#creative-masonry");
-const allMediaItems = () => isPostersPage ? creativeItems : [...portfolioItems.filter((i) => i.type === "video"), ...realEstateItems];
+const allMediaItems = () => isPostersPage ? creativeItems : portfolioItems.filter((i) => i.type === "video");
 
 let currentMediaIndex = -1;
 
@@ -476,7 +471,6 @@ function createReelCard(item) {
 function renderPortfolio() {
   // On index.html: show only videos in the work grid (posters live on posters.html)
   if (portfolioGrid) portfolioGrid.innerHTML = portfolioItems.filter((item) => item.type === "video").map(createWorkCard).join("");
-  if (realEstateGrid) realEstateGrid.innerHTML = realEstateItems.map(createWorkCard).join("");
   if (reelsList) reelsList.innerHTML = portfolioItems.filter((item) => item.type === "video").map(createReelCard).join("");
   // On posters.html: render the creative masonry grid
   if (creativeMasonry) {
@@ -626,7 +620,6 @@ function init() {
   renderClients();
   renderContactLinks();
   if (portfolioGrid) attachMediaEvents(portfolioGrid);
-  if (realEstateGrid) attachMediaEvents(realEstateGrid);
   if (reelsList) attachMediaEvents(reelsList);
   if (creativeMasonry) attachMediaEvents(creativeMasonry);
   if (document.querySelector(".filter-button")) configureFilters();
