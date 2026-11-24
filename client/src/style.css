@@ -204,6 +204,7 @@ em { color: var(--silver); font-style: italic; font-weight: 400; }
 
 /* ── 3-column standard cards — all equal ── */
 .work-card { grid-column: span 4; }
+.real-estate-grid .work-card { grid-column: span 6; }
 
 /* ── Media wrapper — image/video fills a fixed aspect box ── */
 .work-card-media {

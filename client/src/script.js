@@ -186,6 +186,32 @@ const portfolioItems = [
   },
 ];
 
+/* Real Estate reels — local videos in client/public/reels/ */
+const realEstateItems = [
+  {
+    id: "real-estate-5626",
+    type: "video",
+    title: "Real Estate — Cut 5626",
+    label: "Real Estate Reel",
+    meta: "REAL ESTATE / 2026",
+    categories: ["reels", "real-estate"],
+    source: "/reels/IMG_5626.MP4",
+    poster: "",
+    number: "01",
+  },
+  {
+    id: "real-estate-5624",
+    type: "video",
+    title: "Real Estate — Cut 5624",
+    label: "Real Estate Reel",
+    meta: "REAL ESTATE / 2026",
+    categories: ["reels", "real-estate"],
+    source: "/reels/IMG_5624.MP4",
+    poster: "",
+    number: "02",
+  },
+];
+
 /* Posters & creatives — your real images from D:\post */
 const creativeItems = [
   {
@@ -377,6 +403,7 @@ const contactLinks = [
 ];
 
 const portfolioGrid = document.querySelector("#portfolio-grid");
+const realEstateGrid = document.querySelector("#real-estate-grid");
 const reelsList = document.querySelector("#reels-list");
 const creativeMasonry = document.querySelector("#creative-masonry");
 const clientList = document.querySelector("#client-list");
@@ -391,7 +418,7 @@ const toast = document.querySelector("#toast");
 
 // Page-aware media pool: on posters.html navigate posters; on index.html navigate videos only
 const isPostersPage = !!document.querySelector("#creative-masonry");
-const allMediaItems = () => isPostersPage ? creativeItems : portfolioItems.filter((i) => i.type === "video");
+const allMediaItems = () => isPostersPage ? creativeItems : [...portfolioItems.filter((i) => i.type === "video"), ...realEstateItems];
 
 let currentMediaIndex = -1;
 
@@ -404,7 +431,9 @@ function mediaMarkup(item, className) {
   const coverImg = item.poster
     ? `<img class="${className}-cover" src="${escapeHtml(item.poster)}" alt="${escapeHtml(item.title)} cover" loading="lazy" aria-hidden="true" />`
     : "";
-  return `${coverImg}<video class="${className}" src="${escapeHtml(item.source)}" poster="${item.poster ? escapeHtml(item.poster) : ""}" preload="none" muted playsinline aria-label="Preview of ${escapeHtml(item.title)}"></video>`;
+  const previewSrc = item.poster ? item.source : `${item.source}#t=0.1`;
+  const preloadMode = item.poster ? "none" : "metadata";
+  return `${coverImg}<video class="${className}" src="${escapeHtml(previewSrc)}" poster="${item.poster ? escapeHtml(item.poster) : ""}" preload="${preloadMode}" muted playsinline aria-label="Preview of ${escapeHtml(item.title)}"></video>`;
 }
 
 function createWorkCard(item) {
@@ -447,6 +476,7 @@ function createReelCard(item) {
 function renderPortfolio() {
   // On index.html: show only videos in the work grid (posters live on posters.html)
   if (portfolioGrid) portfolioGrid.innerHTML = portfolioItems.filter((item) => item.type === "video").map(createWorkCard).join("");
+  if (realEstateGrid) realEstateGrid.innerHTML = realEstateItems.map(createWorkCard).join("");
   if (reelsList) reelsList.innerHTML = portfolioItems.filter((item) => item.type === "video").map(createReelCard).join("");
   // On posters.html: render the creative masonry grid
   if (creativeMasonry) {
@@ -596,6 +626,7 @@ function init() {
   renderClients();
   renderContactLinks();
   if (portfolioGrid) attachMediaEvents(portfolioGrid);
+  if (realEstateGrid) attachMediaEvents(realEstateGrid);
   if (reelsList) attachMediaEvents(reelsList);
   if (creativeMasonry) attachMediaEvents(creativeMasonry);
   if (document.querySelector(".filter-button")) configureFilters();
