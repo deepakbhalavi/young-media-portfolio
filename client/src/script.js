@@ -24,7 +24,7 @@ const ASSETS = {
   ADD OR UPDATE WORK HERE
   type: "video" opens the supplied file in the fullscreen player.
   type: "image" opens a poster or creative in the fullscreen lightbox.
-  categories must use: commercial-social, real-estate, posters.
+  categories must use: commercial-social, real-estate, clinics, posters.
 */
 // Helper: derive a Cloudinary JPEG thumbnail from a Cloudinary video URL.
 // Uses the "so_0" (start offset 0) transformation to grab the first frame.
@@ -216,6 +216,28 @@ const portfolioItems = [
     source: "/reels/IMG_5622.MP4",
     poster: "",
     number: "19",
+  },
+  {
+    id: "clinics-3536",
+    type: "video",
+    title: "Clinics — Cut 3536",
+    label: "Clinic Reel",
+    meta: "CLINICS / 2026",
+    categories: ["clinics"],
+    source: "/reels/IMG_3536.MOV",
+    poster: "",
+    number: "20",
+  },
+  {
+    id: "clinics-5627",
+    type: "video",
+    title: "Clinics — Cut 5627",
+    label: "Clinic Reel",
+    meta: "CLINICS / 2026",
+    categories: ["clinics"],
+    source: "/reels/IMG_5627.MP4",
+    poster: "",
+    number: "21",
   },
 ];
 
