@@ -226,6 +226,7 @@ const portfolioItems = [
     categories: ["clinics"],
     source: "/reels/IMG_3536.MOV",
     poster: "",
+    previewTime: 2.5,
     number: "20",
   },
   {
@@ -459,7 +460,8 @@ function mediaMarkup(item, className) {
   const coverImg = item.poster
     ? `<img class="${className}-cover" src="${escapeHtml(item.poster)}" alt="${escapeHtml(item.title)} cover" loading="lazy" aria-hidden="true" />`
     : "";
-  const previewSrc = item.poster ? item.source : `${item.source}#t=0.1`;
+  const previewTime = item.previewTime ?? 0.1;
+  const previewSrc = item.poster ? item.source : `${item.source}#t=${previewTime}`;
   const preloadMode = item.poster ? "none" : "metadata";
   return `${coverImg}<video class="${className}" src="${escapeHtml(previewSrc)}" poster="${item.poster ? escapeHtml(item.poster) : ""}" preload="${preloadMode}" muted playsinline aria-label="Preview of ${escapeHtml(item.title)}"></video>`;
 }
