@@ -206,6 +206,17 @@ const portfolioItems = [
     poster: "",
     number: "18",
   },
+  {
+    id: "real-estate-5622",
+    type: "video",
+    title: "Real Estate — Cut 5622",
+    label: "Real Estate Reel",
+    meta: "REAL ESTATE / 2026",
+    categories: ["reels", "real-estate"],
+    source: "/reels/IMG_5622.MP4",
+    poster: "",
+    number: "19",
+  },
 ];
 
 /* Posters & creatives — your real images from D:\post */
